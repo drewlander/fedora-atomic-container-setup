@@ -7,9 +7,9 @@ sudo -v
 trap 'sudo -k' EXIT
 
 # Put your Containerfile's path here
-cd "${HOME}/Path/To/Build-File"
+cd "${HOME}/source/fedora-atomic-container-setup"
 
-IMAGE="localhost/my-kinoite-image-name"
+IMAGE="localhost/drewite"
 LATEST="${IMAGE}:latest"
 PREVIOUS="${IMAGE}:previous"
 

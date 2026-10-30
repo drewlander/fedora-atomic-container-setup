@@ -32,6 +32,7 @@ RUN dnf -y install \
     zsh \
     fish \
     chromium \
+    traceroute \
     emacs && \
     dnf clean all -y
 RUN dnf -y config-manager addrepo --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo

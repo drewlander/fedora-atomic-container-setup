@@ -9,7 +9,7 @@ trap 'sudo -k' EXIT
 # Put your Containerfile's path here
 cd "${HOME}/source/fedora-atomic-container-setup"
 
-IMAGE="localhost/drewite"
+IMAGE="localhost/drewblue"
 LATEST="${IMAGE}:latest"
 PREVIOUS="${IMAGE}:previous"
 

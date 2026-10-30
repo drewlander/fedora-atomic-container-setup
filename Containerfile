@@ -1,5 +1,5 @@
 # Start from the official Fedora 44 Kinoite OCI image
-FROM quay.io/fedora/fedora-kinoite:44
+FROM quay.io/fedora/fedora-silverblue:45
 
 # Add repos here before install
 # RUN tee ...repo contents here to go into repo file....
@@ -11,8 +11,10 @@ RUN dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rele
 RUN dnf -y install intel-media-driver
 RUN dnf -y swap ffmpeg-free ffmpeg --allowerasing
 RUN dnf -y install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-RUN dnf -y install mesa-va-drivers-freeworld
-RUN dnf -y swap mesa-vulkan-drivers{,-freeworld}
+RUN dnf -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+RUN dnf -y install mullvad-browser
+#RUN dnf -y install mesa-va-drivers-freeworld
+#RUN dnf -y swap mesa-vulkan-drivers{,-freeworld}
 # I recommend following my template in Container-custom-example -- one RUN block for removals with a dnf clean all
 # one RUN block for hardware drivers and codecs (RPMFusion etc.) with a dnf clean all, and one RUN block for your GUI apps/extra CLI tools
 RUN dnf -y install \
